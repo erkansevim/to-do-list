@@ -1,15 +1,18 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 const TodoEkle = ({doing, setDoing}) => {
+const[buton, setButon]=useState(true)
+
   return (
     <div>
     <header>
+    
         <h1>
             TO DO APP
         </h1>
-        <button className='btn' style={{backgroundColor:"green"}}>CLOSE ADD TASK BAR</button>
+        <button onClick={()=>setButon(!buton)} className='btn' style={{backgroundColor:buton ? "green" : "purple"}}>{buton ?"CLOSE " : "SHOW "} ADD TASK BAR</button>
     </header>
-    <form>
+    {buton && <form>
         <div className='formControl'>
         <label htmlFor="text">Task</label>
         <input type="text" id="text" />
@@ -21,7 +24,8 @@ const TodoEkle = ({doing, setDoing}) => {
         </div>
 
         <button className='btn btn-submit'>SUBMIT</button>
-    </form>
+    </form>}
+    
     </div>
   )
 }
