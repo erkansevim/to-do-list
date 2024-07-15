@@ -4,7 +4,7 @@ import TodoGoster from '../components/TodoGoster'
 import TodoEkle from '../components/TodoEkle'
 
 const Home = () => {
-    const[doing, setDoing]=useState(Data)
+    const[doing, setDoing]=useState(JSON.parse(localStorage.getItem("todoList")) || Data)
   return (
     <div>
         <TodoEkle doing={doing} setDoing={setDoing}/>

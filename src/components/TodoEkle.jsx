@@ -7,7 +7,11 @@ const [day, setDay]=useState("")
 
 const handleSubmit=(e)=>{
 e.preventDefault();
-setDoing([...doing, {id:doing.length, text:text, day:day, isDone:false}])
+localStorage.setItem("todoList", JSON.stringify([...doing, {id:doing.length, text:text, day:day, isDone:false}]))
+
+setDoing(JSON.parse(localStorage.getItem("todoList")))
+
+
 setText("")
 setDay("")
 }
